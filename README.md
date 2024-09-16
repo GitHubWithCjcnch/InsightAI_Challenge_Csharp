@@ -2,9 +2,11 @@
 
 ## Integrantes do Grupo
 
-- **[Seu Nome]** (Descrição da função que você desempenha no projeto, ex: Desenvolvimento Backend)
-- **[Nome do Integrante 2]** (Descrição da função que desempenha, ex: Desenvolvimento Frontend)
-- *(Se houver mais membros, adicione-os aqui)*
+- **CAIO VITOR URBANO NEVES RM552392**
+- **EMILE DE MOURA MAIA RM552235**
+- **GUILHERME PEREIRA DE OLIVEIRA RM552238**
+- **JULIA ANDRADE DIAS RM552332**
+- **MARIA EDUARDA COSTA DE ARAÚJO VIEIRA RM98760**
 
 ---
 
@@ -62,6 +64,7 @@ Este projeto segue uma arquitetura multicamada (layered architecture), dividida 
    ```bash
    Add-Migration FirstMigration
    Update-Database
+   ```
    
    - Usando a Linha de Comando:
      Você também pode rodar o comando via terminal ou Prompt de Comando, certificando-se de estar no diretório raiz do projeto. Utilize o seguinte comando para adicionar ou aplicar as migrations:
@@ -70,3 +73,4 @@ Este projeto segue uma arquitetura multicamada (layered architecture), dividida 
         dotnet ef migrations add InitialCreate -p InsightAI.Infraestructure -s InsightAI.Api
         dotnet ef database update -p InsightAI.Infraestructure -s InsightAI.Api
         dotnet run --project InsightAI.Api
+     ```
