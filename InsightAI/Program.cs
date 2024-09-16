@@ -1,18 +1,15 @@
 using InsightAI.Core.Interfaces.Services;
-using InsightAI.Core.Services;
 using InsightAI.Infraestructure.Data;
 using InsightAI.Core.Interfaces.Repositories;
 using InsightAI.Infraestructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using Oracle.EntityFrameworkCore;
 using InsightAI.Infraestructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseOracle(builder.Configuration.GetConnectionString("OracleDbConnection"),
-    b => b.MigrationsAssembly("InsightAI.Infraestructure")));
+    options.UseOracle(builder.Configuration.GetConnectionString("OracleDbConnection")));
 
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IEmpresaRepository, EmpresaRepository>();
@@ -22,7 +19,7 @@ builder.Services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
 builder.Services.AddScoped<IFeedbackEmpresaRepository, FeedbackEmpresaRepository>();
 builder.Services.AddScoped<IAnaliseRepository, AnaliseRepository>();
 
-// em teoria deve funcionar pq apliquei singleton no usuariosService, então não existe a necessidade de colocar aqui...
+builder.Services.AddSingleton<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IEmpresaService, EmpresaService>();
 builder.Services.AddScoped<IEnderecoEmpresaService, EnderecoEmpresaService>();
 builder.Services.AddScoped<IRamoEmpresaService, RamoEmpresaService>();

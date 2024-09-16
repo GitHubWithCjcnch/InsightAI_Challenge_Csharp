@@ -1,7 +1,6 @@
 ﻿using InsightAI.Core.Entities;
 using InsightAI.Core.Interfaces.Repositories;
 using InsightAI.Core.Interfaces.Services;
-using InsightAI.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -13,9 +12,9 @@ namespace InsightAI.Api.Controllers
     {
         private readonly IUsuarioService _usuarioService;
 
-        public UsuarioController(IUsuarioRepository usuarioRepository)
+        public UsuarioController(IUsuarioService usuarioService)
         {
-            _usuarioService = UsuarioService.GetInstance(usuarioRepository);
+            _usuarioService = usuarioService;
         }
 
         /// <summary>
